@@ -1,4 +1,21 @@
 {%extends './header.html'%}
 {%block content%}
-<h1>Manage Students</h1>
+	<h1 class="text-danger fs-2 fw-bold">Manage Students</h1>
+	<hr>
+	<a href="/new-student" class="btn btn-primary">New Student</a>
+	<hr>
+	<table class="table table-bordered table-dark">
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Course</th>
+		</tr>
+	{%for s in students%}
+		<tr>
+			<td>{{ s.name }}</td>
+			<td>{{ s.age }}</td>
+			<td>{{ s.course }}</td>
+		</tr>
+	{%endfor%}
+	</table>
 {%endblock%}
