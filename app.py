@@ -20,7 +20,7 @@ def ms():
 @app.post('/save-student')
 def ss():
     if students:
-        id=max([s['id'] for s in students])
+        id=max([s['id'] for s in students])+1
     else:
         id=1
     name=request.form['name']
@@ -28,7 +28,14 @@ def ss():
     course=request.form['course']
     new_student={'id':id, 'name':name, 'age':age, 'course':course}
     students.append(new_student)
-    return redirect('/')
+    return redirect('/new-student')
+    
+@app.route('/delete-student/<int:id>')
+def ds(id):
+    global students
+    students=[s for s in students if s['id'] != id]
+    return redirect('/manage-students')
+    
     
 if __name__ == "__main__":
 	app.run(debug=True)
