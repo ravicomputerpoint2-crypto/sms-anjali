@@ -28,7 +28,7 @@ def ss():
     course=request.form['course']
     new_student={'id':id, 'name':name, 'age':age, 'course':course}
     students.append(new_student)
-    return redirect('/new-student')
+    return redirect('/manage-students')
     
 @app.route('/delete-student/<int:id>')
 def ds(id):
