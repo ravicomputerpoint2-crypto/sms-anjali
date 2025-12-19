@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
-
-total_students = 200
 students = []
+
+
 
 teachers = []
 
 @app.route('/')
 def home():
-	return render_template("index.html",ts=total_students)
+    total_students = len(students)
+    return render_template("index.html",ts=total_students)
     
 @app.route('/new-student')
 def ns():
