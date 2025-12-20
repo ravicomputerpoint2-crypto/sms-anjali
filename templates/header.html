@@ -278,7 +278,7 @@
         <!--begin::Sidebar Brand-->
         <div class="sidebar-brand">
           <!--begin::Brand Link-->
-          <a href="./index.html" class="brand-link">
+          <a href="/" class="brand-link">
             <!--begin::Brand Image-->
             <img
               src="{{url_for('static',filename='assets/img/1.png')}}"
@@ -305,8 +305,8 @@
               data-accordion="false"
               id="navigation"
             >
-              <li class="nav-item menu-open">
-                <a href="#" class="nav-link active">
+              <li class="nav-item ">
+                <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-houses-fill"></i>
                   <p>
                     Dashboard
@@ -315,11 +315,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="/" class="nav-link active">
+                    <a href="/" class="nav-link">
                       <i class="nav-icon bi bi-house"></i>
                       <p>Dashboard</p>
                     </a>
                   </li>
+                </ul>
+              </li>
+			  
+			  
+			  
+			  <li class="nav-item ">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-person-fill"></i>
+                  <p>
+                    Students
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="/new-student" class="nav-link">
                       <i class="nav-icon bi bi-person-fill"></i>
@@ -330,6 +344,30 @@
                     <a href="/manage-students" class="nav-link">
                       <i class="nav-icon bi bi-pen-fill"></i>
                       <p>Manage Students</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+			  
+			  <li class="nav-item ">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-person-fill"></i>
+                  <p>
+                    Teachers
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/new-teacher" class="nav-link">
+                      <i class="nav-icon bi bi-person-fill"></i>
+                      <p>New Teacher</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/manage-teachers" class="nav-link">
+                      <i class="nav-icon bi bi-pen-fill"></i>
+                      <p>Manage Teachers</p>
                     </a>
                   </li>
                 </ul>
