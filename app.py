@@ -10,7 +10,8 @@ teachers = []
 @app.route('/')
 def home():
     total_students = len(students)
-    return render_template("index.html",ts=total_students)
+    total_teachers = len(teachers)
+    return render_template("index.html",ts=total_students,tt=total_teachers)
     
 @app.route('/new-student')
 def ns():
@@ -65,6 +66,16 @@ def dt(id):
     global teachers
     teachers=[t for t in teachers if t['id'] != id]
     return redirect('/manage-teachers')
+
+@app.route('/print-student/<int:id>')
+def ps(id):
+    student = [s for s in students if s['id'] == id][0]
+    return render_template('students/print.html',student=student)
+    
+@app.route('/print-teacher/<int:id>')
+def pt(id):
+    teacher = [t for t in teachers if t['id'] == id][0]
+    return render_template('teachers/printt.html',teacher=teacher)
     
     
 if __name__ == "__main__":
