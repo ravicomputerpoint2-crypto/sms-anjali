@@ -11,6 +11,7 @@
 			<th>Age</th>
 			<th>Course</th>
 			<th>Print</th>
+			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
 	{%for s in students%}
@@ -20,6 +21,9 @@
 			<td>{{ s.course }}</td>
 			<td> 
 				<a href="/print-student/{{ s.id }}" class="btn btn-info"> Print </a>
+			</td>
+			<td>
+				<a href="/edit-student/{{ s.id }}" class="btn btn-warning"> Edit </a>
 			</td>
 			<td>
 			<a href="/delete-student/{{ s.id }}" class="btn btn-danger">Delete</a>

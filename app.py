@@ -76,7 +76,23 @@ def ps(id):
 def pt(id):
     teacher = [t for t in teachers if t['id'] == id][0]
     return render_template('teachers/printt.html',teacher=teacher)
-    
+
+@app.route('/edit-student/<int:id>')
+def es(id):
+    student = [s for s in students if s['id'] ==  id][0]
+    return render_template('students/edit.html' ,student=student)
+
+@app.post('/update-student')  
+def us():
+    id = int(request.form['id'])
+    name = request.form['name']
+    age = request.form['age']
+    course = request.form['course']
+    student = [s for s in students if s['id'] == id][0]
+    student['name'] = name
+    student['age'] = age
+    student['course'] = course
+    return redirect('/manage-students')
     
 if __name__ == "__main__":
 	app.run(debug=True)
