@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 students = []
 teachers = []
+fees = []
 
 
 @app.route('/')
@@ -58,8 +59,10 @@ def ss():
         'id': id,
         'name': name,
         'age': age,
-        'course': course
+        'course': course,
+        'fees': 3000
     }
+
     students.append(new_student)
     return redirect('/manage-students')
 
@@ -81,6 +84,7 @@ def st():
         'age': age,
         'subject': subject
     }
+
     teachers.append(new_teacher)
     return redirect('/manage-teachers')
 
@@ -163,6 +167,41 @@ def ut():
     teacher['subject'] = subject
 
     return redirect('/manage-teachers')
+
+
+@app.route('/contact')
+def co():
+    return render_template("contact.html")
+
+
+@app.route('/new-fees')
+def nf():
+    return render_template("fees/new.html", students=students)
+
+
+@app.post('/save-fees')
+def sf():
+    if fees:
+        id = max([f['id'] for f in fees]) + 1
+    else:
+        id = 1
+
+    s_id = int(request.form['s_id'])
+    amount = request.form['amount']
+
+    new_fees = {
+        'id': id,
+        's_id': s_id,
+        'amount': amount
+    }
+
+    fees.append(new_fees)
+    return redirect('/manage-fees')
+
+
+@app.route('/manage-fees')
+def mf():
+    return render_template("fees/manage.html", fees=fees, students=students)
 
 
 if __name__ == "__main__":

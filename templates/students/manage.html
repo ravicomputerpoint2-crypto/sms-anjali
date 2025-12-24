@@ -10,6 +10,7 @@
 			<th>Name</th>
 			<th>Age</th>
 			<th>Course</th>
+			<th>Fees</th>
 			<th>Print</th>
 			<th>Edit</th>
 			<th>Delete</th>
@@ -19,6 +20,9 @@
 			<td>{{ s.name }}</td>
 			<td>{{ s.age }}</td>
 			<td>{{ s.course }}</td>
+			<td>
+				{{s.fees}}
+			</td>
 			<td> 
 				<a href="/print-student/{{ s.id }}" class="btn btn-info"> Print </a>
 			</td>
